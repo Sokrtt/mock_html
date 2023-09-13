@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)file:///C:/Users/dprohvataev/Downloads/Telegram%20Desktop/MOCK_HTML.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Monitor</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ECEFF1;
+            transition: margin-top 0.3s;
+        }
+
+        header {
+            background-color: #2196F3;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .hamburger {
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-size: 24px;
+        }
+
+        .tabs {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #2196F3;
+            list-style-type: none;
+            padding: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+
+        .tabs li {
+            cursor: pointer;
+            padding: 15px 20px;
+            border-bottom: 1px solid #1976D2;
+            color: white;
+        }
+
+        .tabs li:last-child {
+            border-bottom: none;
+        }
+
+        .tabs li:hover {
+            background-color: #1976D2;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            border-radius: 2px;
+            margin: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .terminal {
+            background-color: #212121;
+            color: #4CAF50;
+            padding: 10px;
+            border-radius: 2px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+
+        .terminal textarea {
+            width: 100%;
+            background-color: #424242;
+            color: #4CAF50;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+    </style>
+</head>
+<body style="margin-top: 250px;">
+
+<header>
+    <button class="hamburger" onclick="toggleTabs()">☰</button>
+    <h2>System Monitor</h2>
+</header>
+
+<ul class="tabs" style="display: block;">
+    <li onclick="showTab(&#39;cpu&#39;)">CPU</li>
+    <li onclick="showTab(&#39;memory&#39;)">Memory</li>
+    <li onclick="showTab(&#39;disk&#39;)">Disk</li>
+    <li onclick="showTab(&#39;run-script&#39;)">Run Script</li>
+</ul>
+
+<div id="cpu" class="tab-content active">
+    <h2>CPU Load</h2>
+    <p>Core 1: 45%</p>
+    <p>Core 2: 50%</p>
+    <p>Core 3: 55%</p>
+    <p>Core 4: 60%</p>
+    <p>Core 5: 65%</p>
+    <p>Core 6: 70%</p>
+    <p>Core 7: 75%</p>
+    <p>Core 8: 80%</p>
+    <p>Core 9: 85%</p>
+    <p>Core 10: 90%</p>
+    <p>Average Total Load: 68%</p>
+    <p>Frequency: 3.5 GHz</p>
+</div>
+
+<div id="memory" class="tab-content">
+    <h2>Memory Slots</h2>
+    <p>Slot 1: 4GB (Used: 2GB)</p>
+    <!-- Add similar lines for other slots -->
+</div>
+
+<div id="disk" class="tab-content">
+    <h2>Storage</h2>
+    <p>Type: SSD</p>
+    <p>Consumption: 250GB/500GB</p>
+</div>
+
+<div id="run-script" class="tab-content">
+    <div class="terminal">
+        <p>$ ls</p>
+        <p>file1.txt file2.txt</p>
+        <!-- Add more commands and responses as needed -->
+        <textarea rows="3" placeholder="Enter command..."></textarea>
+    </div>
+</div>
+
+<script>
+    function showTab(tabId) {
+        const contents = document.querySelectorAll('.tab-content');
+        contents.forEach(content => {
+            content.classList.remove('active');
+        });
+        document.getElementById(tabId).classList.add('active');
+        toggleTabs(); // Close the tabs after selecting
+    }
+
+    function toggleTabs() {
+        const tabs = document.querySelector('.tabs');
+        const body = document.body;
+        if (tabs.style.display === 'none' || tabs.style.display === '') {
+            tabs.style.display = 'block';
+            body.style.marginTop = '250px';
+        } else {
+            tabs.style.display = 'none';
+            body.style.marginTop = '0';
+        }
+    }
+
+    // Default tab
+    showTab('cpu');
+</script>
+
+
+</body></html>
